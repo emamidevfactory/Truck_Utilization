@@ -1,0 +1,31 @@
+<mvc:View xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:viz="sap.viz.ui5"
+	controllerName="TRUCK_UTLIZATION.controller.TRUCK_UTLIZATION">
+	<App id="app">
+		<pages>
+			<Page id="page" title="Truck Load Utilization">
+				<content>
+					<Toolbar>
+						<VBox>
+							<Input id="doc_no" placeholder="Enter Shipment No." liveChange="onLiveChange"/>
+						</VBox>
+						<ComboBox placeholder="Select Truck Size" id="idComboBox" items="{ path: '/ZTRUCK_TYPESet', sorter: { path: 'AddInfo' } }"
+							change="handleChange" selectedKey="{AddInfo}" maxWidth="200%">
+							<core:ListItem key="{AddInfo}" text="{Bezei}" additionalText="{AddInfo}"/>
+						</ComboBox>
+						<!--<ComboBox placeholder="Select Truck Size" id="idCombop" items="{ path: '/ZTRUCK_TYPESet', sorter: { path: 'AddInfo' } }"-->
+						<!--	change="handleChange" selectedKey="{AddInfo}" maxWidth="200%">-->
+						<!--	<core:Item key="{AddInfo}" text="{Bezei}"/>-->
+						<!--</ComboBox>-->
+					</Toolbar>
+					<viz:Bar id='vizBar' visible='true' width='100%'/>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button press="onGetDetails" text="Get Details" icon="sap-icon://save"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
